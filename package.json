@@ -1,0 +1,33 @@
+{
+  "name": "about-me",
+  "version": "1.0.0",
+  "description": "Web site about me",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vmarcosp/about-me.git"
+  },
+  "keywords": [
+    "about",
+    "me",
+    "vmarcosp",
+    "web",
+    "site",
+    "portifolio"
+  ],
+  "author": "vmarcosp <contato@vmarcosp.com.br>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vmarcosp/about-me/issues"
+  },
+  "homepage": "https://github.com/vmarcosp/about-me#readme",
+  "dependencies": {
+    "express": "^4.15.4"
+  },
+  "devDependencies": {
+    "pug": "^2.0.0-rc.3"
+  }
+}
