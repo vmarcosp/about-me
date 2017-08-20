@@ -1,0 +1,136 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+html,
+body,
+ul {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif; }
+
+.banner {
+  width: 100%;
+  position: relative;
+  min-height: 900px;
+  display: flex;
+  flex-flow: column wrap; }
+  .banner > .description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    padding: 0 2rem; }
+    .banner > .description > span {
+      font-weight: bold;
+      font-size: 30px;
+      position: relative;
+      z-index: 10;
+      color: white; }
+
+.banner-header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box; }
+
+@media screen and (max-width: 600px) {
+  .banner {
+    background: #0f2634; } }
+
+@media screen and (min-width: 600px) {
+  .banner {
+    background: url("/imgs/bg-2.jpg");
+    background-attachment: fixed;
+    background-position: 50% 50%;
+    background-size: cover; }
+    .banner:before {
+      content: ' ';
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.6); } }
+
+@media screen and (min-width: 800px) {
+  .banner-header {
+    padding: 1rem 2rem; }
+    .banner-header .logo {
+      margin: 20px; }
+  .mobile-button {
+    display: none; }
+  .navbar {
+    list-style: none;
+    display: flex; }
+    .navbar > li {
+      display: flex;
+      align-items: center;
+      padding: 1rem; }
+      .navbar > li > a {
+        text-transform: uppercase;
+        font-size: 20px;
+        text-decoration: none;
+        color: white;
+        position: relative; }
+        .navbar > li > a:hover {
+          color: #f24747; }
+          .navbar > li > a:hover:after {
+            transform: scale(1); }
+        .navbar > li > a:after {
+          transition: 200ms;
+          content: ' . ';
+          transform: scale(0);
+          position: absolute;
+          bottom: -1px;
+          color: transparent;
+          left: 0;
+          height: 2px;
+          width: 100%;
+          background: #f24747; } }
+
+@media screen and (max-width: 800px) {
+  .navbar {
+    display: none; }
+    .navbar.active {
+      z-index: 25;
+      top: 0;
+      left: 0;
+      display: block;
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: #f24747; }
+  .banner-header {
+    padding: 1rem 1rem; }
+    .banner-header .logo {
+      height: 30px;
+      align-self: center; }
+  .mobile-button {
+    align-self: flex-start;
+    z-index: 26;
+    border: none;
+    background: transparent;
+    position: relative;
+    width: 40px;
+    cursor: pointer;
+    outline: none; }
+    .mobile-button > span {
+      position: absolute;
+      display: block;
+      height: 4px;
+      margin-bottom: .4rem;
+      background: white;
+      width: 80%;
+      transition: 200ms; }
+    .mobile-button > span:nth-child(1) {
+      top: 0px; }
+    .mobile-button > span:nth-child(2) {
+      top: 10px; }
+    .mobile-button > span:nth-child(3) {
+      top: 20px; }
+    .mobile-button.active span {
+      top: 10px; }
+    .mobile-button.active > span:nth-child(1) {
+      transform: rotate(135deg); }
+    .mobile-button.active > span:nth-child(2) {
+      display: none; }
+    .mobile-button.active > span:nth-child(3) {
+      transform: rotate(-135deg); } }

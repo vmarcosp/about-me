@@ -16,7 +16,7 @@ gulp.task('serve', ['babelify', 'sass'], () => {
 });
 
 gulp.task('babelify', () => {
-    return browserify('./js/src/app.js')
+    return browserify('./js/src/index.js')
         .transform('babelify', { presets: ['es2015'] })
         .bundle()
         .pipe(source('app.js'))
@@ -25,7 +25,7 @@ gulp.task('babelify', () => {
 });
 
 gulp.task('sass', () => {
-    return gulp.src('./scss/*.scss')
+    return gulp.src('./scss/all.scss')
         .pipe(sass())
         .pipe(gulp.dest('./css'))
         .pipe(browserSync.stream());
