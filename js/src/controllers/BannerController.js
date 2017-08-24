@@ -8,10 +8,13 @@ class BannerController {
 
   _toggleMenu() {
     this.buttonMobile.addEventListener('click', () => {
+      let $body = document.getElementsByTagName('body')[0];
       if (this._isMenuActive()) {
         this.buttonMobile.classList.remove('active');
         this.menu.classList.remove('active');
+        $body.classList.remove('body-overflow-hidden');
       } else {
+        $body.classList.add('body-overflow-hidden');
         this.buttonMobile.classList.add('active');
         this.menu.classList.add('active');
       }

@@ -1,11 +1,13 @@
 @import '../utils/_variables';
 @import '../utils/_mixins';
+@import '../utils/_animates';
+
 .banner {
     width: 100%;
     position: relative;
     display: flex;
     flex-flow: column wrap;
-    >.description {
+    >.container-description {
         position: relative;
         display: flex;
         flex-flow: column wrap;
@@ -13,13 +15,6 @@
         justify-content: space-around;
         flex: 1;
         padding: 0 2rem;
-        >span {
-            font-weight: bold;
-            text-align: center;
-            position: relative;
-            z-index: 10;
-            color: white;
-        }
         >.learn-more {
             text-transform: uppercase;
             border: none;
@@ -27,25 +22,77 @@
             border-radius: 1px;
             color: white;
             cursor: pointer;
+            opacity: 0;
+            -webkit-animation-name: fadein-from-top;
+            -webkit-animation-delay: 1s;
+            -webkit-animation-fill-mode: forwards;
+            -webkit-animation-duration: 2s;
             position: relative;
-            &:hover:after{
-                top:2.5rem;
+            @include transition(300ms);
+            outline:none;
+            &:hover {
+                color: $orange;
+                &:after {
+                    top: 2.5rem;
+                    color: $orange;
+                }
             }
-            &:after{
-                @include transition(150ms);
-                content:'❯';
-                top:20px;
-                left:45%;
+            &:after {
+                @include transition(300ms);
+                content: '❯';
+                top: 20px;
+                left: 45%;
                 position: absolute;
-                transform:rotate(90deg);
+                transform: rotate(90deg);
             }
         }
     }
     .banner-header {
-        position: relative;
+        position: 1rem;
         display: flex;
+        position:relative;
         justify-content: space-between;
         box-sizing: border-box;
+    }
+}
+
+
+.description {
+    >h1 {
+        font-weight: bold;
+        text-align: center;
+        position: relative;
+        z-index: 10;
+        color: white;
+        animation: fadein-from-top 2s;
+        text-transform: uppercase;
+        @include transition(200ms);
+        position: relative;
+        padding: {
+            bottom:1rem;
+        }
+        &:after{
+            content:'.';
+            color:transparent;
+            position: absolute;
+            width:150px;
+            left:50%;
+            margin-left:-75px;
+            bottom:-10px;
+            height: 2px;
+            background: white;
+        }
+    }
+    >p{
+        padding: {
+            top:1rem;
+        }
+        font-style: italic;
+        position: relative;
+        color:white;
+        text-align: center;
+        @include fontSize($font-md);
+        -webkit-animation: fadein-from-top 2s forwards;
     }
 }
 
@@ -57,7 +104,7 @@
 
 @media screen and(min-width:600px) {
     .banner {
-        background: url('/imgs/bg-2.jpg');
+        background: url('/imgs/background.jpg');
         background-attachment: fixed;
         background-position: 50% 50%;
         background-size: cover;
@@ -75,21 +122,22 @@
 
 @media screen and (min-width:800px) {
     .banner {
-        min-height: 900px;
-        .description {
-            >span {
-                @include fontSize($font-extra-lg);
-            }
-            >.learn-more {
-                @include fontSize($font-md);
-            }
-        }
+        min-height: 700px;
         >.banner-header {
             padding: 1rem 2rem;
             .logo {
+                position:relative;
                 align-self: center;
-                height: 40px;
+                height: 60px;
             }
+        }
+    }
+    .description {
+        >h1 {
+            @include fontSize($font-big);
+        }
+        >.learn-more {
+            @include fontSize($font-md);
         }
     }
     .mobile-button {
@@ -131,16 +179,17 @@
     }
 }
 
+
 @media screen and (max-width:800px) {
     .banner {
         min-height: 600px;
-        >.description {
-            >span {
-                @include fontSize($font-md);
-            }
-            >.learn-more {
-                @include fontSize($font-sm);
-            }
+    }
+    .description {
+        >h1 {
+            @include fontSize($font-lg);
+        }
+        >.learn-more {
+            @include fontSize($font-sm);
         }
     }
     .navbar {
@@ -183,12 +232,13 @@
     .banner-header {
         padding: 1rem 1rem;
         .logo {
-            height: 30px;
+            position:relative;
+            height: 50px;
             align-self: center;
         }
     }
     .mobile-button {
-        align-self: flex-start;
+        align-self:center;
         z-index: 26;
         border: none;
         height: 20px;
@@ -200,7 +250,7 @@
         >span {
             position: absolute;
             display: block;
-            height: 4px;
+            height: 2px;
             margin-bottom: .4rem;
             background: white;
             width: 80%;
