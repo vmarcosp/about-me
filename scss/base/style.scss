@@ -1,10 +1,17 @@
 @import '../utils/_variables';
+@import '../utils/_animates';
+@import '../utils/_mixins';
+
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 html,
 body,
 ul {
     margin: 0;
     padding: 0;
+}
+
+html,body{
+    height:100%;
 }
 
 html,
@@ -16,40 +23,27 @@ button {
     font-family: 'Montserrat', sans-serif!important;
 }
 
-.body-overflow-hidden{
-    overflow: hidden;
+.developing-mode{
+    .banner,header{
+        height:100%!important;
+    }
+    .developing-footer{
+        display: flex;
+        text-align: center;
+        flex-flow:column wrap;
+    }
+    .developing-description{
+        color:white;
+        position: relative;
+        @include transition(300ms);
+        font-size: 24px;
+        opacity: 0;
+        -webkit-animation-name: fadein-from-top;
+        -webkit-animation-delay: 1s;
+        -webkit-animation-fill-mode: forwards;
+        -webkit-animation-duration: 2s;
+    }
+    .developing-copyright{
+        color:white;
+    }
 }
-
-// body {
-//     overflow: hidden;
-// }
-
-// .bg-developing {
-//     position: fixed;
-//     z-index: 2000;
-//     background: $blue-dark;
-//     width: 100%;
-//     top: 0;
-//     left: 0;
-//     height: 100%;
-//     display: flex;
-//     align-items: center;
-//     justify-content: space-between;
-//     flex-flow: column wrap;
-//     overflow: hidden;
-//     >.logo {
-//         height: 34px;
-//         margin-top: 50px;
-//         width: 200px;
-//     }
-//     >h3 {
-//         color: white;
-//     }
-//     span {
-//         display: block;
-//         padding: 1rem;
-//         box-sizing: border-box;
-//         font-size: 12px;
-//         color: white;
-//     }
-// }
