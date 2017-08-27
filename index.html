@@ -23,9 +23,9 @@
                     <span></span>
                 </button>
                 <ul class="navbar">
-                    <li><a href="">Sobre</a></li>
-                    <li><a href="">Contato</a></li>
-                    <li><a href="">Portifólio</a></li>
+                    <li><a href="#/servicos">Serviços</a></li>                    
+                    <li><a href="#/contato">Contato</a></li>
+                    <li><a href="#/portifolio">Portifólio</a></li>
                 </ul>
             </nav>
             <div class="container-description">
@@ -39,7 +39,7 @@
     </header>
 
     <main>
-        <div class="expertise">
+        <div id="servicos" class="expertise">
             <h1 class="center-xs">SERVIÇOS</h1>
             <div class="expertises-container">
                 <div class="expertise-item">
@@ -90,7 +90,23 @@
                     <h2>HANDMADE</h2>
                     <p>Teste um texto aleatório qualquer, com virgula e umas enrolação pra quebrar o texto.</p>
                 </div>
+
             </div>
+        </div>
+        <div class="contact">
+            <h1>CONTATO</h1>
+            <h3>Entre em contato comigo caso queira um orçamento ou desenvolver um projeto</h3>
+            <form name="contato" class="contact-form">
+                <input placeholder="NOME*" name="nome" required type="text">
+                
+                <input placeholder="E-MAIL*" name="email" required type="email">
+                
+                <input placeholder="TELEFONE/CELULAR" name="telefone" type="tel">
+                
+                <input placeholder="CIDADE" name="cidade" type="text">
+                
+                <textarea rows="5" placeholder="CONTE-ME SOBRE SEU PROJETO OU ME INFORME SOBRE SEU ORÇAMENTO" name="mensagem" required ></textarea>
+            </form>
         </div>
     </main>
 

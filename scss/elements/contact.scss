@@ -1,0 +1,36 @@
+@import '../utils/_variables';
+@import '../utils/_mixins';
+@import '../utils/_animates';
+.contact {
+    padding: 2rem 0;
+    background: $blue-dark;
+    display: flex;
+    text-align: center;
+    flex-flow: column wrap;
+    align-items: center;
+    >h1,
+    >h3 {
+        color: white;
+    }
+}
+
+.contact-form {
+    max-width: 700px;
+    width: 100%;
+    display: flex;
+    flex-flow: column wrap;
+    >input,
+    >textarea {
+        color:white;
+        outline:none;
+        border-radius: 2px;
+        background: transparent;
+        border: solid 2px white;
+        margin: .5rem 0;
+        padding: .5rem 1rem;
+        &::placeholder {
+            color: $black-light;
+        }
+        justify-content: center;
+    }
+}
