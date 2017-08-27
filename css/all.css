@@ -17,6 +17,16 @@ button {
 .body-overflow-hidden {
   overflow: hidden; }
 
+svg.animate path {
+  opacity: 0;
+  animation: svg-animate 2.5s forwards; }
+
+@keyframes svg-animate {
+  from { }
+  to {
+    opacity: 1;
+    stroke-dashoffset: 0; } }
+
 @keyframes fadein-from-top {
   from {
     opacity: 0;
@@ -24,6 +34,12 @@ button {
   to {
     opacity: 1;
     top: 0; } }
+
+@keyframes progressive-width {
+  from {
+    transform: scale(0); }
+  to {
+    transform: scale(1); } }
 
 .banner {
   width: 100%;
@@ -97,6 +113,9 @@ button {
     color: transparent;
     position: absolute;
     width: 150px;
+    transform: scale(0);
+    animation: progressive-width 1s forwards;
+    animation-delay: 1.5s;
     left: 50%;
     margin-left: -75px;
     bottom: -10px;
@@ -269,3 +288,49 @@ button {
       display: none; }
     .mobile-button.active > span:nth-child(3) {
       transform: rotate(-135deg); } }
+
+@keyframes fadein-from-top {
+  from {
+    opacity: 0;
+    top: -150px; }
+  to {
+    opacity: 1;
+    top: 0; } }
+
+@keyframes progressive-width {
+  from {
+    transform: scale(0); }
+  to {
+    transform: scale(1); } }
+
+.expertise {
+  padding: 2rem 0;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center; }
+  .expertise > h1 {
+    color: #222222; }
+  .expertise .expertise-item {
+    display: flex;
+    align-items: center;
+    flex-flow: column wrap;
+    text-align: center;
+    padding: 2rem 1rem; }
+    .expertise .expertise-item > p {
+      color: #7c7c7c; }
+    .expertise .expertise-item > svg {
+      width: 80px;
+      height: 80px; }
+      .expertise .expertise-item > svg > g, .expertise .expertise-item > svg path {
+        stroke: #f24747; }
+
+@media screen and (max-width: 500px) {
+  .expertises-container {
+    display: flex;
+    flex-flow: column wrap; } }
+
+@media screen and (min-width: 500px) {
+  .expertises-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; } }

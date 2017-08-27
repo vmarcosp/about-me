@@ -9,7 +9,6 @@ const gulp = require('gulp'),
   htmlReplace = require('gulp-html-replace'),
   eslint = require('gulp-eslint');
 
-
 gulp.task('serve', ['linter', 'babelify', 'sass'], () => {
 
   browserSync.init({
@@ -52,7 +51,7 @@ gulp.task('linter', () => {
       },
       'rules': {
         'no-console': [
-          'error',
+          'warn',
           {
             'allow': [
               'warn',

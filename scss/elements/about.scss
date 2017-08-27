@@ -1,0 +1,45 @@
+@import '../utils/_variables';
+@import '../utils/_mixins';
+@import '../utils/_animates';
+
+.expertise{
+    padding:2rem 0;
+    display: flex;
+    flex-flow:column wrap;
+    align-items: center;
+    >h1{
+        color:$black;
+    }
+    .expertise-item{
+        display: flex;
+        align-items: center;
+        flex-flow: column wrap;
+        text-align: center;
+        padding: 2rem 1rem;
+        >p{
+            color:$black-light;
+        }
+        >svg{
+            width:80px;
+            height:80px;
+            >g,path{
+                stroke:$orange;
+            }
+        }
+    }
+}
+
+@media screen and(max-width:500px){
+    .expertises-container{
+        display: flex;
+        flex-flow: column wrap;
+    }
+}
+
+@media screen and(min-width:500px){
+    .expertises-container{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}

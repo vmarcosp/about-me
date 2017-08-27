@@ -8,3 +8,12 @@
         top: 0;
     }
 }
+
+@keyframes progressive-width {
+    from{
+        transform: scale(0);
+    }
+    to{
+        transform: scale(1);
+    }
+}

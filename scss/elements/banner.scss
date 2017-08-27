@@ -76,6 +76,9 @@
             color:transparent;
             position: absolute;
             width:150px;
+            transform: scale(0);
+            animation:progressive-width 1s forwards;
+            animation-delay: 1.5s;
             left:50%;
             margin-left:-75px;
             bottom:-10px;
