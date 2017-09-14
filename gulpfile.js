@@ -13,6 +13,7 @@ const gulp = require('gulp'),
 gulp.task('serve', ['linter', 'babelify', 'sass'], () => {
 
   browserSync.init({
+    open: false,
     server: './'
   });
 
@@ -23,8 +24,12 @@ gulp.task('serve', ['linter', 'babelify', 'sass'], () => {
 });
 
 gulp.task('babelify', () => {
-  return browserify('./js/src/index.js', { debug: true })
-    .transform('babelify', { presets: ['es2015'] })
+  return browserify('./js/src/index.js', {
+      debug: true
+    })
+    .transform('babelify', {
+      presets: ['es2015']
+    })
     .bundle()
     .pipe(source('app.js'))
     .pipe(gulp.dest('./js/dist/'))
@@ -88,12 +93,14 @@ gulp.task('linter', () => {
 
 gulp.task('css', () => {
   return gulp.src([
-    'css/all.css',
-    'node_modules/flexboxgrid/dist/flexboxgrid.min.css',
-    'node_modules/normalize.css/normalize.css',
-  ])
+      'css/all.css',
+      'node_modules/flexboxgrid/dist/flexboxgrid.min.css',
+      'node_modules/normalize.css/normalize.css',
+    ])
     .pipe(concat('all.min.css'))
-    .pipe(cleanCss({ compatibilty: 'ie8' }))
+    .pipe(cleanCss({
+      compatibilty: 'ie8'
+    }))
     .pipe(gulp.dest('dist/css/'));
 });
 
